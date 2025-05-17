@@ -50,17 +50,19 @@ body {
   font-family: var(--main-font);
   background-color: var(--background-color);
   color: var(--text-color);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
 }
 
 /* Main Container */
 .container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh; /* Changed from height to min-height to allow scrolling */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
 }
 
 /* Tetris Grid Background */
@@ -164,12 +166,13 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  min-height: 100vh; /* Changed from height to min-height to allow scrolling */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + 30px); /* Added extra padding to account for bottom navigation */
   animation: fadeIn 0.5s ease;
 }
 
@@ -342,7 +345,6 @@ body {
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 1;
@@ -355,15 +357,18 @@ body {
 
 /* Bottom Navigation */
 .bottom-navigation {
-  position: absolute;
-  bottom: var(--spacing-lg);
+  position: fixed; /* Changed from absolute to fixed to stay at bottom of viewport */
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: center;
   gap: var(--spacing-lg);
   z-index: 10;
-  padding: var(--spacing-md);
+  padding: 0 var(--spacing-md); /* Adjusted padding to help with height */
+  height: 30px; /* Set exact height to 30px */
+  background-color: var(--background-color); /* Added background color */
+  align-items: center; /* Center items vertically */
 }
 
 .nav-button {
@@ -371,13 +376,14 @@ body {
   color: var(--text-color);
   border: none;
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: calc(var(--spacing-sm) / 2) var(--spacing-md); /* Adjusted padding to fit in 30px height */
   font-family: var(--main-font);
   font-size: var(--small-text);
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+  line-height: 1; /* Added to help with vertical alignment */
 }
 
 .nav-button:hover,
@@ -412,7 +418,8 @@ body {
   }
 
   .bottom-navigation {
-    bottom: var(--spacing-md);
+    /* Height stays the same at 30px */
+    gap: var(--spacing-md);
   }
 
   .falling-tetrimino {
@@ -461,11 +468,12 @@ body {
   }
 
   .bottom-navigation {
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    /* Height still 30px */
   }
 
   .nav-button {
-    padding: calc(var(--spacing-sm) - 2px) var(--spacing-sm);
+    padding: calc(var(--spacing-sm) / 3) calc(var(--spacing-sm)); /* Further reduced padding for small screens */
   }
 }
 
