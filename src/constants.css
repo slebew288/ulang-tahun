@@ -1,0 +1,196 @@
+:root {
+    --tetris-i-color: #00f0f0;
+    --tetris-j-color: #0000f0;
+    --tetris-l-color: #f0a000;
+    --tetris-o-color: #f0f000;
+    --tetris-s-color: #00f000;
+    --tetris-t-color: #a000f0;
+    --tetris-z-color: #f00000;
+    --cell-size: 30px;
+    --board-width: 10;
+    --board-height: 20;
+    --board-border-width: 0px;
+    --piece-drop-speed: 1s;
+    --line-clear-flash: 0.3s;
+    --piece-rotation: 0.2s;
+}
+
+
+.tetris-piece {
+    position: absolute;
+    transition: top var(--piece-drop-speed) linear;
+}
+
+.tetris-piece.i-piece {
+    background-color: var(--tetris-i-color);
+    box-shadow: 0 0 8px var(--tetris-i-color);
+}
+
+.tetris-piece.j-piece {
+    background-color: var(--tetris-j-color);
+    box-shadow: 0 0 8px var(--tetris-j-color);
+}
+
+.tetris-piece.l-piece {
+    background-color: var(--tetris-l-color);
+    box-shadow: 0 0 8px var(--tetris-l-color);
+}
+
+.tetris-piece.o-piece {
+    background-color: var(--tetris-o-color);
+    box-shadow: 0 0 8px var(--tetris-o-color);
+}
+
+.tetris-piece.s-piece {
+    background-color: var(--tetris-s-color);
+    box-shadow: 0 0 8px var(--tetris-s-color);
+}
+
+.tetris-piece.t-piece {
+    background-color: var(--tetris-t-color);
+    box-shadow: 0 0 8px var(--tetris-t-color);
+}
+
+.tetris-piece.z-piece {
+    background-color: var(--tetris-z-color);
+    box-shadow: 0 0 8px var(--tetris-z-color);
+}
+
+
+@keyframes lineFlash {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        background-color: white;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.line-clear {
+    animation: lineFlash var(--line-clear-flash) linear 3;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+.tetris-piece.rotating {
+    animation: rotate var(--piece-rotation) ease-out;
+}
+
+
+.level-indicator {
+    display: flex;
+    margin-top: var(--spacing-sm);
+}
+
+.level-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.level-dot.active {
+    background-color: var(--accent-color);
+}
+
+
+.level-1 .tetris-board {
+    border-color: var(--tetris-i-color);
+}
+
+.level-2 .tetris-board {
+    border-color: var(--tetris-j-color);
+}
+
+.level-3 .tetris-board {
+    border-color: var(--tetris-l-color);
+}
+
+.level-4 .tetris-board {
+    border-color: var(--tetris-o-color);
+}
+
+.level-5 .tetris-board {
+    border-color: var(--tetris-s-color);
+}
+
+.level-6 .tetris-board {
+    border-color: var(--tetris-t-color);
+}
+
+.level-7 .tetris-board {
+    border-color: var(--tetris-z-color);
+}
+
+.level-8 .tetris-board {
+    border-color: #f0f0f0;
+}
+
+.level-9 .tetris-board {
+    border-color: #f0a0f0;
+}
+
+.level-10 .tetris-board {
+    border-image: linear-gradient(45deg,
+            var(--tetris-i-color),
+            var(--tetris-j-color),
+            var(--tetris-l-color),
+            var(--tetris-o-color),
+            var(--tetris-s-color),
+            var(--tetris-t-color),
+            var(--tetris-z-color)) 1;
+    animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        border-image-source: linear-gradient(0deg,
+                var(--tetris-i-color),
+                var(--tetris-j-color),
+                var(--tetris-l-color),
+                var(--tetris-o-color),
+                var(--tetris-s-color),
+                var(--tetris-t-color),
+                var(--tetris-z-color));
+    }
+
+    100% {
+        border-image-source: linear-gradient(360deg,
+                var(--tetris-i-color),
+                var(--tetris-j-color),
+                var(--tetris-l-color),
+                var(--tetris-o-color),
+                var(--tetris-s-color),
+                var(--tetris-t-color),
+                var(--tetris-z-color));
+    }
+}
+
+
+@media (max-height: 700px) {
+    :root {
+        --cell-size: 24px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    :root {
+        --cell-size: 20px;
+    }
+}

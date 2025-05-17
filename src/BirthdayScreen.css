@@ -1,0 +1,540 @@
+.birthday-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--spacing-md);
+  overflow: hidden;
+  background-image: radial-gradient(circle at center, rgba(15, 43, 80, 0.9), rgba(0, 0, 0, 0.95));
+  gap: 20px;
+}
+
+
+.love-message-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: slideDown 0.5s ease-out forwards, fadeOut 0.5s ease-in 4.5s forwards;
+  width: 90%;
+  max-width: 400px;
+}
+
+.love-message-content {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+  border: 2px solid var(--accent-color);
+  backdrop-filter: blur(5px);
+  animation: glow 2s infinite alternate;
+  width: 100%;
+  justify-content: center;
+}
+
+.love-message-content p {
+  color: var(--text-color);
+  margin: 0;
+  font-size: var(--small-text);
+  text-align: center;
+  font-weight: 500;
+}
+
+.love-heart {
+  font-size: 1.5rem;
+  margin-right: var(--spacing-sm);
+  animation: heartbeat 1.2s infinite ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+  }
+}
+
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  font-size: var(--small-text);
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.7);
+  position: relative;
+  bottom: 250px;
+  z-index: 5;
+
+}
+
+
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+
+.tetris-board {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 3px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(77, 199, 236, 0.5);
+  margin: 0 auto;
+
+}
+
+.board-row {
+  display: flex;
+  height: 30px;
+}
+
+.board-cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.1s ease;
+}
+
+.piece-cell {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.3);
+  animation: fadeInPiece 0.2s ease-out;
+}
+
+
+.shadow-cell {
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+@keyframes fadeInPiece {
+  from {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.touch-controls {
+  position: relative;
+  top: 250px;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 320px;
+}
+
+
+.touch-button {
+  width: 65px;
+  height: 65px;
+  background-color: rgba(30, 41, 59, 0.8);
+  color: var(--text-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(77, 199, 236, 0.3);
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 5px rgba(77, 199, 236, 0.5);
+  background-color: var(--accent-color);
+}
+
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  animation: fadeIn 0.5s ease;
+  padding: var(--spacing-lg);
+}
+
+.game-over h2 {
+  color: var(--accent-color);
+  font-size: var(--subtitle-size);
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(77, 199, 236, 0.8);
+  animation: pulsateText 2s infinite;
+  letter-spacing: 2px;
+}
+
+
+.love-message {
+  color: var(--text-color);
+  font-size: var(--small-text);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  max-width: 90%;
+  line-height: 1.6;
+  padding: var(--spacing-md);
+  background-color: rgba(255, 105, 180, 0.15);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 105, 180, 0.4);
+  animation: fadeInUp 0.8s ease 0.3s both;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsateText {
+  0% {
+    text-shadow: 0 0 10px rgba(77, 199, 236, 0.7);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(77, 199, 236, 1);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(77, 199, 236, 0.7);
+  }
+}
+
+.game-over-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 250px;
+}
+
+.play-again,
+.back-to-menu,
+.gift-button {
+  background-color: rgba(30, 41, 59, 0.8);
+  color: var(--text-color);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--main-font);
+  font-size: var(--small-text);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.gift-button {
+  background-color: rgba(255, 105, 180, 0.3);
+  border-color: rgba(255, 105, 180, 0.6);
+  margin-top: var(--spacing-sm);
+}
+
+.play-again:hover,
+.back-to-menu:hover,
+.gift-button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.play-again:active,
+.back-to-menu:active,
+.gift-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+@media (max-height: 700px) {
+  .birthday-screen {
+    padding: var(--spacing-sm);
+  }
+
+  .tetris-board {
+    width: 270px;
+    height: 540px;
+  }
+
+  .board-row {
+    height: 27px;
+  }
+
+  .board-cell {
+    width: 27px;
+    height: 27px;
+  }
+
+  .piece-cell {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .touch-button {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+
+  .love-message-notification {
+    top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-screen {
+    padding: var(--spacing-sm) var(--spacing-xs);
+  }
+
+  .game-info {
+    max-width: 280px;
+    font-size: calc(var(--small-text) - 1px);
+  }
+
+  .touch-controls {
+    gap: var(--spacing-md);
+  }
+
+  .touch-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .play-again,
+  .back-to-menu,
+  .gift-button {
+    width: 100%;
+    font-size: calc(var(--small-text) - 1px);
+    padding: 10px 15px;
+  }
+
+  .love-message-content {
+    padding: var(--spacing-sm);
+  }
+
+  .love-message-content p {
+    font-size: calc(var(--small-text) - 1px);
+  }
+
+  .tetris-board {
+    width: 250px;
+    height: 500px;
+  }
+
+  .board-cell {
+    width: 25px;
+    height: 25px;
+  }
+
+  .board-row {
+    height: 25px;
+  }
+}
+
+
+@media (max-height: 580px) and (orientation: landscape) {
+  .birthday-screen {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+    gap: 30px;
+  }
+
+  .game-layout {
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .tetris-board {
+    width: 240px;
+    height: 480px;
+  }
+
+  .board-cell {
+    width: 24px;
+    height: 24px;
+  }
+
+  .board-row {
+    height: 24px;
+  }
+
+  .piece-cell {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .game-info {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+  }
+
+  .touch-controls {
+    flex-direction: column;
+    height: 300px;
+    margin-top: 0;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .love-message-notification {
+    top: 10px;
+  }
+
+  .game-over {
+    flex-direction: column;
+  }
+
+  .game-over-buttons {
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .tetris-board {
+    width: 220px;
+    height: 440px;
+  }
+
+  .board-cell {
+    width: 22px;
+    height: 22px;
+  }
+
+  .board-row {
+    height: 22px;
+  }
+
+  .piece-cell {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .touch-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}

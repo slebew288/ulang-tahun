@@ -1,0 +1,154 @@
+
+
+
+
+/*  */
+/* TypingText.css - Animated Typing Text Styles */
+
+.typing-text {
+  font-family: var(--main-font);
+  color: var(--text-color);
+  font-size: var(--text-size);
+  line-height: 1.8;
+  background-color: transparent;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  position: relative;
+  min-height: 10rem;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  text-shadow: 0 0 5px rgba(77, 199, 236, 0.5);
+}
+
+/* Typing cursor animation */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: var(--accent-color);
+  color: transparent;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Color highlights for certain keywords */
+.typing-text strong {
+  color: var(--accent-color);
+  font-weight: normal;
+}
+
+.typing-text em {
+  color: var(--menu-btn-color);
+  font-style: normal;
+}
+
+/* Clickable effect */
+.typing-text:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.typing-text:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltip */
+.typing-text::after {
+  content: "Click to continue";
+  position: absolute;
+  bottom: -25px;
+  right: 10px;
+  font-size: calc(var(--small-text) - 2px);
+  color: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.typing-text:hover::after {
+  opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .typing-text {
+    font-size: calc(var(--text-size) - 1px);
+    line-height: 1.7;
+    padding: var(--spacing-sm);
+    min-height: 8rem;
+  }
+  
+  .typing-cursor {
+    width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-text {
+    font-size: calc(var(--text-size) - 2px);
+    line-height: 1.6;
+    padding: var(--spacing-sm);
+    min-height: 6rem;
+  }
+  
+  .typing-text::after {
+    bottom: -20px;
+    font-size: calc(var(--small-text) - 3px);
+  }
+}
+
+/* Special text effects */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                0.05em 0 0 rgba(0, 255, 0, 0.75),
+                0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.typing-text.glitch-effect {
+  animation: glitch 0.5s infinite;
+}
+
+.typing-text.rainbow-text {
+  background: linear-gradient(
+    to right, 
+    #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow { 
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Text completed effect */
+.typing-text.completed {
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: background-color 0.5s ease;
+}

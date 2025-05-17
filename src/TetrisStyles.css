@@ -1,0 +1,221 @@
+/* Tetris Styles specifically for tetriminos and game elements */
+
+/* Additional Tetrimino Animations */
+@keyframes rotateFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes tetrisGrid {
+  0% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+/* Active Tetris Game Background */
+.tetris-game-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+/* Tetris Board (visible in menu) */
+.tetris-board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 600px;
+  border: 2px solid var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px var(--accent-color);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  gap: 1px;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.tetris-cell {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tetris-cell.filled {
+  border: none;
+}
+
+.tetris-cell.filled-i {
+  background-color: var(--tetrimino-i);
+  box-shadow: 0 0 5px var(--tetrimino-i);
+}
+
+.tetris-cell.filled-j {
+  background-color: var(--tetrimino-j);
+  box-shadow: 0 0 5px var(--tetrimino-j);
+}
+
+.tetris-cell.filled-l {
+  background-color: var(--tetrimino-l);
+  box-shadow: 0 0 5px var(--tetrimino-l);
+}
+
+.tetris-cell.filled-o {
+  background-color: var(--tetrimino-o);
+  box-shadow: 0 0 5px var(--tetrimino-o);
+}
+
+.tetris-cell.filled-s {
+  background-color: var(--tetrimino-s);
+  box-shadow: 0 0 5px var(--tetrimino-s);
+}
+
+.tetris-cell.filled-t {
+  background-color: var(--tetrimino-t);
+  box-shadow: 0 0 5px var(--tetrimino-t);
+}
+
+.tetris-cell.filled-z {
+  background-color: var(--tetrimino-z);
+  box-shadow: 0 0 5px var(--tetrimino-z);
+}
+
+/* Score display and game stats */
+.tetris-stats {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 12px;
+  z-index: 0;
+}
+
+.tetris-stats h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.tetris-stats-item {
+  margin-bottom: 5px;
+}
+
+.next-piece {
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--accent-color);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1px;
+}
+
+/* Controls display */
+.tetris-controls {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 12px;
+  z-index: 0;
+}
+
+.tetris-controls h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.control-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.key {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Floating pieces animation for menu screen */
+.floating-piece {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.4;
+  animation: rotateFloat 8s infinite ease-in-out;
+}
+
+/* Media queries for the tetris game elements */
+@media (max-width: 768px) {
+  .tetris-board {
+    width: 240px;
+    height: 480px;
+  }
+  
+  .tetris-stats,
+  .tetris-controls {
+    padding: 10px;
+    font-size: 10px;
+  }
+  
+  .tetris-stats h3,
+  .tetris-controls h3 {
+    font-size: 12px;
+  }
+  
+  .next-piece {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tetris-board {
+    width: 200px;
+    height: 400px;
+  }
+  
+  .tetris-stats,
+  .tetris-controls {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    margin: 10px;
+    font-size: 8px;
+  }
+  
+  .next-piece {
+    width: 40px;
+    height: 40px;
+  }
+}
