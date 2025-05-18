@@ -2,11 +2,11 @@
   "message": "Haiii gantengggg!! It's your dayy\nHappy birthday sayanggkuu🥳🤍\n\nAku kasih ini ke kamu jangan lupa bacaa yaa\n\n\nHappy birthday sayanggggkuu Hifzi hilmi muhammad🥰, semoga dengan bertambahnya usiamu, dan berkurangnya umurmu, semakin sempurna juga imanmu, rajin ibadahnya, selalu di beri kesehatan sama yang maha kuasa, berkah umur, selaluu bahagia, serta segala doa dan cita² yang kamu inginkan bisa terwujud dan dimudahkan dalam segala urusan aamiin🤲.\n\nSemangat trus buat kejer semua keinginan kamuuu, kamu pasti bisa sayangg, aku selalu dukung kamu & suport kamuu, jangan cape ya sayanggg! semangat trus aku selalu ada di samping kamu, ttp jadi anak baik ya, jangann bosenn negur akuu kalo aku ada salah sayangg.\n\nBumi banyak orang hebat, kamu salah satunya✨\nYang ganteng dan hebat cuma cowo aku🥰\nAku selalu bangga sama kamu🤍\n\nAku juga mau bilang makasih ya udah hadir di hidup aku, makasih kamu selalu usahain buat aku, selalu ada buat aku, aku bangga, aku beruntung, aku bersyukur bisa kenal sama kamu dalam hidupku, aku bahagia punya kamuu🤍\n\nBeribu maaf aku bilang karna aku gamau kehilangan kamu, kalo kamu butuh aku, aku selalu ada disini🌹.\n\nIloveyou more\n√every second\n√every minute\n√every hour\n√every day\nYou are my universe💖\n\nKamu cintaku, kamu kesayangan ku, kamu rumahku, kamu segalanya.\nMakasih udah bikin hidup aku happy with everything about you. Iam also very lucky to have you, i love you infinity ❤\n\nHappy birthday gantenggkuuu! 🤍🤍\ndari aku, pacarmu, hehe",
   "photos": [
     {
-      "url": "/foto/cowok1.jpg",
+      "url": "foto/cowok1.jpg",
       "title": "Gantengku 1"
     },
     {
-      "url": "/foto/cowok2.jpg",
+      "url": "foto/cowok2.jpg",
       "title": "Gantengku 2"
     }
   ],
@@ -40,16 +40,16 @@
       "image": "music/image-music/maher zain.png"
     }
   ],
-  "video": "/videos/indila.mp4",
+  "video": "videos/indila.mp4",
   "sounds": {
-    "background": "/sounds/theme.mp3",
-    "birthday": "/sounds/birthday.mp3",
-    "click": "/sounds/click.wav",
-    "photoprint": "/sounds/print.mp3",
-    "photo": "/sounds/photo-click.mp3",
-    "textScreen": "/sounds/keyboard.mp3",
-    "photoScreen": "/sounds/birthday.mp3",
-    "musicgame": "/sounds/music-game.mp3",
-    "gameover": "/sounds/game-over.mp3"
+    "background": "sounds/theme.mp3",
+    "birthday": "sounds/birthday.mp3",
+    "click": "sounds/click.wav",
+    "photoprint": "sounds/print.mp3",
+    "photo": "sounds/photo-click.mp3",
+    "textScreen": "sounds/keyboard.mp3",
+    "photoScreen": "sounds/birthday.mp3",
+    "musicgame": "sounds/music-game.mp3",
+    "gameover": "sounds/game-over.mp3"
   }
 }
